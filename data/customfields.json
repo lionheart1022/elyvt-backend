@@ -1,0 +1,35 @@
+{
+  "kind": "customfields",
+  "data": [
+    {
+      "id": "IEABRGBFJUAAQZRW",
+      "accountId": "IEABRGBF",
+      "title": "Suggested Tools",
+      "type": "DropDown",
+      "sharedIds": [],
+      "settings": {
+        "inheritanceType": "All",
+        "values": [
+          "Presentation Deck",
+          "Configuration Workbook",
+          "Project Governance Tool",
+          "Automation (Back End)",
+          "UI",
+          "Demonstration",
+          "Questionnaire"
+        ],
+        "allowOtherValues": false
+      }
+    },
+    {
+      "id": "IEABRGBFJUAAQZRX",
+      "accountId": "IEABRGBF",
+      "title": "Description of Tool",
+      "type": "Text",
+      "sharedIds": [],
+      "settings": {
+        "inheritanceType": "All"
+      }
+    }
+  ]
+}

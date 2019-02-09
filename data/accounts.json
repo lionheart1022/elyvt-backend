@@ -1,0 +1,39 @@
+{
+  "kind": "accounts",
+  "data": [
+    {
+      "id": "IEABRGBF",
+      "name": "Chris Mirabile’s Team",
+      "dateFormat": "MM/dd/yyyy",
+      "firstDayOfWeek": "Sun",
+      "workDays": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri"
+      ],
+      "rootFolderId": "IEABRGBFI7777777",
+      "recycleBinId": "IEABRGBFI7777776",
+      "createdDate": "2017-05-25T15:47:16Z",
+      "joinedDate": "2017-10-10T18:54:06Z"
+    },
+    {
+      "id": "IEABXCGG",
+      "name": "Asher Swing’s Team",
+      "dateFormat": "MM/dd/yyyy",
+      "firstDayOfWeek": "Sun",
+      "workDays": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri"
+      ],
+      "rootFolderId": "IEABXCGGI7777777",
+      "recycleBinId": "IEABXCGGI7777776",
+      "createdDate": "2017-10-10T18:28:29Z",
+      "joinedDate": "2017-10-10T18:28:29Z"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "kind": "folderTree",
+  "data": [
+    {
+      "id": "IEABRGBFI7777777",
+      "title": "Root",
+      "childIds": [
+        "IEABRGBFI4FW5MB7",
+        "IEABRGBFI4EVG5FA",
+        "IEABRGBFI4FVFHHR",
+        "IEABRGBFI4ETXPVI",
+        "IEABRGBFI4ETXQW6",
+        "IEABRGBFI4EVE4AV",
+        "IEABRGBFI4FW5MCG",
+        "IEABRGBFI4FXIP7J"
+      ],
+      "scope": "WsRoot"
+    },
+    {
+      "id": "IEABRGBFI7777776",
+      "title": "Recycle Bin",
+      "childIds": [
+        "IEABRGBFI4EVG6CR",
+        "IEABRGBFI4EVE4AY",
+        "IEABRGBFI4EXAGB5",
+        "IEABRGBFI4EVE7CD",
+        "IEABRGBFI4EVE7CA",
+        "IEABRGBFI4EVG6CB",
+        "IEABRGBFI4EVE7CB",
+        "IEABRGBFI4EVG6CG",
+        "IEABRGBFI4EVG6CE",
+        "IEABRGBFI4EVG6CL",
+        "IEABRGBFI4EVG6CJ",
+        "IEABRGBFI4FVFJYJ",
+        "IEABRGBFI4FPI4BI",
+        "IEABRGBFI4EXAGBO",
+        "IEABRGBFI4EVG6CN",
+        "IEABRGBFI4EVE6VS",
+        "IEABRGBFI4FVFHXT",
+        "IEABRGBFI4EXAF6W",
+        "IEABRGBFI4EVG6BZ",
+        "IEABRGBFI4EVG5FD",
+        "IEABRGBFI4EVE6DE",
+        "IEABRGBFI4EVE7BK",
+        "IEABRGBFI4EXAF6K",
+        "IEABRGBFI4FVY7BB",
+        "IEABRGBFI4EVG5TN"
+      ],
+      "scope": "RbRoot"
+    }   
+    
+  ]
+}

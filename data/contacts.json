@@ -1,0 +1,318 @@
+{
+  "kind": "contacts",
+  "data": [
+    {
+      "id": "KUADPHQL",
+      "firstName": "Caroline",
+      "lastName": "England",
+      "type": "Person",
+      "profiles": [
+        {
+          "accountId": "IEABRGBF",
+          "email": "cengland@accesselevate.com",
+          "role": "User",
+          "external": false,
+          "admin": false,
+          "owner": false
+        }
+      ],
+      "avatarUrl": "https://www.wrike.com/avatars//F6/1F/Box_fffd9209_67-69_v1.png",
+      "timezone": "US/Pacific",
+      "locale": "en",
+      "deleted": false,
+      "title": "Director of Product Management"
+    },
+    {
+      "id": "KUAC7Y6X",
+      "firstName": "Chris",
+      "lastName": "Mirabile",
+      "type": "Person",
+      "profiles": [
+        {
+          "accountId": "IEABRGBF",
+          "email": "chris+wrike@accesselevate.com",
+          "role": "User",
+          "external": false,
+          "admin": false,
+          "owner": true
+        }
+      ],
+      "avatarUrl": "https://www.wrike.com/avatars//04/29/Box_ff8502a4_67-77_v1.png",
+      "timezone": "US/Eastern",
+      "locale": "en",
+      "deleted": false,
+      "title": "Consulting/Professional Services",
+      "companyName": "",
+      "phone": "+1 2123003465",
+      "location": ""
+    },
+    {
+      "id": "KUADLSI6",
+      "firstName": "David",
+      "lastName": "Brannan",
+      "type": "Person",
+      "profiles": [
+        {
+          "accountId": "IEABRGBF",
+          "email": "dbrannan@accesselevate.com",
+          "role": "User",
+          "external": false,
+          "admin": true,
+          "owner": false
+        }
+      ],
+      "avatarUrl": "https://www.wrike.com/avatars//6F/E0/Box_ff49b2a6_68-66_v1.png",
+      "timezone": "US/Pacific",
+      "locale": "en",
+      "deleted": false,
+      "title": "Consultant"
+    },
+    {
+      "id": "KUADPKWP",
+      "firstName": "Gray",
+      "lastName": "Blue",
+      "type": "Person",
+      "profiles": [
+        {
+          "accountId": "IEABRGBF",
+          "email": "gblue@accesselevate.com",
+          "role": "User",
+          "external": false,
+          "admin": false,
+          "owner": false
+        }
+      ],
+      "avatarUrl": "https://www.wrike.com/avatars//D7/4B/Box_fff17408_71-66_v1.png",
+      "timezone": "US/Pacific",
+      "locale": "en",
+      "deleted": false,
+      "title": "Manager"
+    },
+    {
+      "id": "KUADBQV6",
+      "firstName": "John",
+      "lastName": "Lema",
+      "type": "Person",
+      "profiles": [
+        {
+          "accountId": "IEABRGBF",
+          "email": "jlema@accesselevate.com",
+          "role": "User",
+          "external": false,
+          "admin": false,
+          "owner": false
+        }
+      ],
+      "avatarUrl": "https://www.wrike.com/avatars//00/DF/Box_ff7cc67d_74-76_v1.png",
+      "timezone": "US/Pacific",
+      "locale": "en",
+      "deleted": false,
+      "title": "CEO"
+    },
+    {
+      "id": "KUADPLBL",
+      "firstName": "Jon",
+      "lastName": "May",
+      "type": "Person",
+      "profiles": [
+        {
+          "accountId": "IEABRGBF",
+          "email": "jmay@accesselevate.com",
+          "role": "User",
+          "external": false,
+          "admin": false,
+          "owner": false
+        }
+      ],
+      "avatarUrl": "https://www.wrike.com/avatars//FD/4C/Box_ffaab125_74-77_v1.png",
+      "timezone": "US/Pacific",
+      "locale": "en",
+      "deleted": false,
+      "title": "Product Manager"
+    },
+    {
+      "id": "KX75JWDX",
+      "firstName": "My Team",
+      "lastName": "",
+      "type": "Group",
+      "profiles": [
+        {
+          "accountId": "IEABXCGG",
+          "role": "User",
+          "external": false,
+          "admin": false,
+          "owner": false
+        }
+      ],
+      "avatarUrl": "https://www.wrike.com/avatars/default/internal_users_group.png",
+      "timezone": "Z",
+      "locale": "en",
+      "deleted": false,
+      "memberIds": [
+        "KUADLS3D"
+      ],
+      "myTeam": true
+    },
+    {
+      "id": "KX75Q2UW",
+      "firstName": "My Team",
+      "lastName": "",
+      "type": "Group",
+      "profiles": [
+        {
+          "accountId": "IEABRGBF",
+          "role": "User",
+          "external": false,
+          "admin": false,
+          "owner": false
+        }
+      ],
+      "avatarUrl": "https://www.wrike.com/avatars/default/internal_users_group.png",
+      "timezone": "Z",
+      "locale": "en",
+      "deleted": false,
+      "memberIds": [
+        "KUADPLBL",
+        "KUADPKWP",
+        "KUADPHWN",
+        "KUADPHQL",
+        "KUADLS3D",
+        "KUADLSI6",
+        "KUADBQV6",
+        "KUADAOBL",
+        "KUAC7Y6X"
+      ],
+      "myTeam": true
+    },
+    {
+      "id": "KUADPHWN",
+      "firstName": "Sam",
+      "lastName": "Singh",
+      "type": "Person",
+      "profiles": [
+        {
+          "accountId": "IEABRGBF",
+          "email": "sam@accesselevate.com",
+          "role": "User",
+          "external": false,
+          "admin": false,
+          "owner": false
+        }
+      ],
+      "avatarUrl": "https://www.wrike.com/avatars//BF/62/Box_ffd20058_83-83_v1.png",
+      "timezone": "US/Pacific",
+      "locale": "en",
+      "deleted": false,
+      "title": "CTO"
+    },
+    {
+      "id": "KUADAOBL",
+      "firstName": "Virginia",
+      "lastName": "Wang",
+      "type": "Person",
+      "profiles": [
+        {
+          "accountId": "IEABRGBF",
+          "email": "vwang+wrike@accesselevate.com",
+          "role": "User",
+          "external": false,
+          "admin": true,
+          "owner": false
+        }
+      ],
+      "avatarUrl": "https://www.wrike.com/avatars//17/48/Box_ff717cc6_86-87_v1.png",
+      "timezone": "US/Eastern",
+      "locale": "en",
+      "deleted": false,
+      "title": "Product Management",
+      "companyName": "Elevate",
+      "location": "New York City"
+    },
+    {
+      "id": "KUADAOBI",
+      "firstName": "Virginia",
+      "lastName": "Wang",
+      "type": "Person",
+      "profiles": [
+        {
+          "accountId": "IEABRGBF"
+        }
+      ],
+      "avatarUrl": "https://www.wrike.com/avatars/default/deleted.png",
+      "timezone": "US/Pacific",
+      "locale": "en",
+      "deleted": true
+    },
+    {
+      "id": "KUADAM3W",
+      "firstName": "Wrike",
+      "lastName": "Bot",
+      "type": "Person",
+      "profiles": [
+        {
+          "accountId": "IEABRGBF",
+          "email": "robot1611813reminder@wrike-robot.com",
+          "role": "Collaborator",
+          "external": true,
+          "admin": false,
+          "owner": false
+        }
+      ],
+      "avatarUrl": "https://www.wrike.com/avatars/reminderbot.png",
+      "timezone": "US/Eastern",
+      "locale": "en",
+      "deleted": false
+    },
+    {
+      "id": "KUADL5XT",
+      "firstName": "Wrike",
+      "lastName": "Bot",
+      "type": "Person",
+      "profiles": [
+        {
+          "accountId": "IEABRGBF",
+          "email": "robot1611813forms@wrike-robot.com",
+          "role": "Collaborator",
+          "external": true,
+          "admin": false,
+          "owner": false
+        }
+      ],
+      "avatarUrl": "https://www.wrike.com/avatars/formsbot.png",
+      "timezone": "US/Eastern",
+      "locale": "en",
+      "deleted": false
+    },
+    {
+      "id": "KUADLS3D",
+      "firstName": "asher",
+      "lastName": "swing",
+      "type": "Person",
+      "profiles": [
+        {
+          "accountId": "IEABRGBF",
+          "email": "aswing@accesselevate.com",
+          "role": "User",
+          "external": false,
+          "admin": true,
+          "owner": false
+        },
+        {
+          "accountId": "IEABXCGG",
+          "email": "aswing@accesselevate.com",
+          "role": "User",
+          "external": false,
+          "admin": false,
+          "owner": true
+        }
+      ],
+      "avatarUrl": "https://www.wrike.com/avatars//52/1C/Box_ff118473_65-83_v1.png",
+      "timezone": "US/Pacific",
+      "locale": "en",
+      "deleted": false,
+      "me": true,
+      "title": "Consulting/Professional Services",
+      "phone": "+1 2127291154"
+    }
+  ]
+}
