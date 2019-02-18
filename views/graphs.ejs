@@ -1,0 +1,538 @@
+<head>
+  <!-- Plotly.js -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+   <style>
+  tr {display: block; }
+th, td { width: 300px; }
+tbody { display: block; height: 300px; overflow: auto;} 
+.bg-default{
+  background:#f5f4f4;
+}
+</style>
+</head>
+
+<body>
+
+ <div class="container-fluid">
+  
+  <div class="col=md-12 ">
+    <h2>Dashboard</h2>
+    <divc class="clearfix"></div>
+    <div class="col-md-4 text-left" style="position:relative">
+      <div id="myDiv" ><!-- Plotly chart will be drawn inside this DIV --></div>
+      <div id="tasktype_display" class="text-right" style="padding-top:60px;position:absolute;bottom:10;right:10"></div> 
+    </div>
+         
+    
+    <div id="todaysTasksHTMLDIV" class="col-md-7 bg-default" style="border-left:2px slid #ccc"></div>
+    
+  
+  </div>
+
+  <div class="clearfix">&nbsp;</div>
+  <div class="clearfix">&nbsp;</div>
+  <div class="clearfix">&nbsp;</div>
+  <div class="col-md-12">
+    <h2>Last 6 Months Overview</h2>
+    <divc class="clearfix"></div>
+    <div class="col-md-6">
+      <div id="myDiv3" ><!-- Plotly chart will be drawn inside this DIV --></div>
+    </div>
+    <div class="col-md-6">
+      <div id="myDiv2" ><!-- Plotly chart will be drawn inside this DIV --></div>
+    </div>
+  
+  </div>
+
+  <div class="col-md-5">
+    <h2>Contacts</h2>
+    <div class="clearfix"></div>
+    <div class="col-md-12">
+      <div id="contactsHTMLDIV" ></div>
+    </div>  
+  </div>
+
+  <div class="col-md-4">
+    <h2>Accounts</h2>
+    <div class="clearfix"></div>
+    <div class="col-md-12">
+      <div id="accountsHTMLDIV" ></div>
+    </div>  
+  </div>
+
+<div class="col-md-3">
+    <h2>Custom Fields</h2>
+    <div class="clearfix"></div>
+    <div class="col-md-12">
+      <div id="customfieldsHTMLDIV" ></div>
+    </div>  
+  </div>
+
+  <div class="clearfix">&nbsp;</div>
+
+ 
+
+<div class="col-md-6">
+    <h2>Workflows</h2>
+    <div class="clearfix"></div>
+    <div class="col-md-12">
+      <div id="workflowHTMLDIV" ></div>
+    </div>  
+  </div>
+
+  <div class="col-md-6">
+    <h2>Comments</h2>
+    <div class="clearfix"></div>
+    <div class="col-md-12">
+      <div id="commentsHTMLDIV" ></div>
+    </div>  
+  </div>
+
+<div class="col-md-6">
+    <h2>Timelogs</h2>
+    <div class="clearfix"></div>
+    <div class="col-md-12">
+      <div id="timelogsHTMLDIV" ></div>
+    </div>  
+  </div>
+  
+  
+   <div class="col-md-6">
+    <h2>Folders</h2>
+    <div class="clearfix"></div>
+    <div class="col-md-12">
+      <div id="foldersHTMLDIV" ></div>
+    </div>  
+  </div>
+
+</div>
+
+
+
+
+  
+
+
+
+  <script>
+
+  var  tasksData = <%- (tasks) %>
+
+	var now = moment();
+	var monthsLists = []
+	var activetaskList = []
+	var completedtaskList = []
+
+  var thisWeekTasks = []
+  var todaysTasks = []
+
+  var A_WEEK_OLD = now.clone().subtract(7, 'days').startOf('day');
+  var ONE_DAY_OLD = now.clone().subtract(1, 'days').startOf('day');
+
+  console.log(A_WEEK_OLD.format('DD'));
+
+  var taskTypes = {'Backlog':0, 'Milestone':0, 'Planned':0}
+  $totalElement = 0;
+	for($i=0; $i<6;$i++){
+		if($i==0){
+			monthsLists[0] = now.format('MMM YYYY');
+		}else{
+			monthsLists[$i] = now.subtract(1, 'months').format('MMM YYYY');
+		}
+		$atl = 0;;
+		$ctl = 0;
+    
+		for(var Element in tasksData['data']){
+			$totalElement++;
+			var d = moment(tasksData['data'][Element]['createdDate'],'YYYY-MM-DDTHH:mm:ssZ');
+			if(monthsLists[$i] == d.format('MMM YYYY')){
+				if(tasksData['data'][Element]['status']=="Completed"){
+					$ctl++;
+				}
+				if(tasksData['data'][Element]['status']=="Active"){
+					$atl++;
+				}
+			}
+
+			var month = d.format('M');
+			var year = d.format('YYYY');
+			var lastmonth = d.clone().subtract(1, 'months').format('MMM YYYY');
+
+
+
+      if (d.isAfter(A_WEEK_OLD)){
+        thisWeekTasks.push(tasksData['data'][Element])
+      }
+
+      if (d.isAfter(ONE_DAY_OLD)){
+        todaysTasks.push(tasksData['data'][Element])
+      }
+
+
+
+      if(tasksData['data'][Element]['dates']['type']=="Backlog"){
+          taskTypes['Backlog'] = taskTypes['Backlog']+1;
+      }
+      if(tasksData['data'][Element]['dates']['type']=="Milestone"){
+          taskTypes['Milestone'] = taskTypes['Milestone']+1;
+      } 
+      if(tasksData['data'][Element]['dates']['type']=="Planned"){
+          taskTypes['Planned'] = taskTypes['Planned']+1;
+      }
+      console.log("d.isAfter(A_WEEK_OLD), ", d.isAfter(A_WEEK_OLD))
+
+		}
+
+		activetaskList[$i] = $atl
+		completedtaskList[$i] = $ctl
+
+	}
+
+
+monthsLists.reverse()
+activetaskList.reverse()
+completedtaskList.reverse()
+
+
+console.log(activetaskList);
+console.log(completedtaskList);
+
+
+// Grpahs 1
+var trace1 = {
+  x: monthsLists,
+  y: activetaskList,
+  name: 'Active Tasks',
+  mode: 'lines',
+};
+
+var trace2 = {
+  x: monthsLists,
+  y: completedtaskList,
+  name: 'Completed Tasks',
+  mode: 'lines',
+};
+
+var data = [trace1, trace2];
+
+var layout = {barmode: 'stack'};
+
+Plotly.newPlot('myDiv3', data, layout);
+
+
+//Graph 2
+var trace1 = {
+  x: monthsLists,
+  y: activetaskList,
+  name: 'Active Tasks',
+  type: 'bar'
+};
+
+var trace2 = {
+  x: monthsLists,
+  y: completedtaskList,
+  name: 'Completed Tasks',
+  type: 'bar'
+};
+
+var data = [trace1, trace2];
+
+var layout = {barmode: 'stack'};
+
+Plotly.newPlot('myDiv2', data, layout);
+
+/*
+console.log(activetaskList[5], completedtaskList[5])
+var totalTasks = (activetaskList[5]) + (completedtaskList[5])
+console.log(totalTasks)
+//Grapsh 3
+var data = [{
+  values: [40, 60],
+  labels: ['Active Tasks', 'Completed Tasks'],
+  type: 'pie'
+}];
+
+Plotly.newPlot('myDiv', data);
+*/
+
+ tasktype_display_HTML = 'Backlogs : '+taskTypes['Backlog']+'<br>';
+ tasktype_display_HTML += 'Milestone: '+taskTypes['Milestone']+'<br>';
+ tasktype_display_HTML += 'Planned  : '+taskTypes['Planned']+'<br>';
+
+  document.getElementById('tasktype_display').innerHTML +=  tasktype_display_HTML;
+
+
+
+backlogPercentage = (taskTypes['Backlog']/$totalElement)*100
+MilestonePercentage = (taskTypes['Milestone']/$totalElement)*100
+PlannedPercentage = (taskTypes['Planned']/$totalElement)*100
+
+var data = [{
+  values: [backlogPercentage, MilestonePercentage, PlannedPercentage],
+  labels: ['Backlog', 'Milestone', 'Planned'],
+  type: 'pie'
+}];
+
+Plotly.newPlot('myDiv', data);
+
+
+/*
+var trace1 = {
+  x: [1, 2, 3, 4, 4, 4, 8, 9, 10],
+  type: 'box',
+  name: 'Set 1'
+};
+
+var trace2 = {
+  x: [2, 3, 3, 3, 3, 5, 6, 6, 7],
+  type: 'box',
+  name: 'Set 2'
+};
+
+var data = [trace1, trace2];
+
+var layout = {
+  title: 'Horizontal Box Plot'
+};
+
+Plotly.newPlot('myDiv4', data, layout);
+
+*/
+
+todaysTasksHTML = '<br/><h3>Todays Tasks</h3> <table class="table table-responsive table-striped"><tr><th>Tasks</th><th>Status</th></tr>'
+  
+$activeTasksToday = 0;
+$completedTasksToday = 0;
+for(var item in todaysTasks){
+  
+  if(tasksData['data'][Element]['status'] == 'Active'){
+    $activeTasksToday++;
+  }
+
+  if(tasksData['data'][Element]['status'] == 'Completed'){
+    $completedTasksToday++;
+  }
+  
+  todaysTasksHTML += '<tr>'
+  todaysTasksHTML += '<td>'+tasksData['data'][Element]['title']+'</td>';
+  todaysTasksHTML += '<td>'+tasksData['data'][Element]['status']+'</td>'
+  todaysTasksHTML += '</tr>'
+}
+
+todaysTasksHTML += '<p>Active Tasks: '+$activeTasksToday+',  Completed Tasks:'+$completedTasksToday+'</p>'
+document.getElementById('todaysTasksHTMLDIV').innerHTML += todaysTasksHTML
+
+
+
+
+
+/**
+Workflows
+**/
+
+var workflowData = <%- (workflows) %>
+
+workflowHTML = ''
+for(var workflowElement in workflowData['data']){
+  workflowHTML += "<div class='panel'><div class='panel-heading'><strong> Workflow: "+workflowData['data'][workflowElement]['name']+"</strong></div>"
+  for(var statuses in workflowData['data'][workflowElement]['customStatuses']){
+    workflowHTML += "<div class='panel-body' style='padding-left:30px'><div class='name pull-left'> <strong>"+workflowData['data'][workflowElement]['customStatuses'][statuses]['name']+"<strong>:  </div>";
+    workflowHTML += "<div class='color pull-left'> Color: "+workflowData['data'][workflowElement]['customStatuses'][statuses]['color']+",  </div>";
+    workflowHTML += "<div class='group pull-left'> Group:"+workflowData['data'][workflowElement]['customStatuses'][statuses]['group']+"  </div>";
+    workflowHTML += "</div>"
+  }
+}
+
+document.getElementById('workflowHTMLDIV').innerHTML += workflowHTML
+
+
+
+/**
+Folders
+**/
+
+var foldersData = <%- (folders) %>
+
+foldersHTML = ''
+
+processedFolders=[]
+for(var foldersElement in foldersData['data']){
+ if((foldersData['data'][foldersElement]['scope']=="WsRoot")|| foldersData['data'][foldersElement]['scope']=="RbRoot"){
+    foldersHTML += "<div><strong> Folders: "+foldersData['data'][foldersElement]['title']+"</strong></div>" 
+    for(var subfolder in foldersData['data'][foldersElement]['childIds']){
+       for(var foldersElement2 in foldersData['data']){        
+        if(foldersData['data'][foldersElement2]['id']==foldersData['data'][foldersElement]['childIds'][subfolder]){
+          console.log(foldersData['data'][foldersElement]['title'])      
+          foldersHTML += "<div>-"+foldersData['data'][foldersElement2]['title']+"</div>" 
+          //foldersHTML += getsubfolder(foldersElement2,foldersData, 1)
+        }
+      }
+    
+    }
+  }
+
+  }
+
+
+  function getsubfolder(folderid,foldersData, level=1){
+      foldersHTML = '';
+      level++;
+      for(var subfolder in foldersData['data'][folderid]['childIds']){
+       for(var foldersElement2 in foldersData['data']){        
+        if(foldersData['data'][foldersElement2]['id']==foldersData['data'][foldersElement]['childIds'][subfolder]){
+          foldersHTML += "<div> ";
+          for($i=1; $i<= level; $i++){
+            foldersHTML += "-" 
+          }
+          foldersHTML += foldersData['data'][foldersElement2]['title']+"</div>" 
+          foldersHTML += getsubfolder(foldersElement2,foldersData, level)
+        }
+       }
+      }
+      return foldersHTML
+
+  }
+
+document.getElementById('foldersHTMLDIV').innerHTML += foldersHTML
+
+
+
+/**
+Accounts
+**/
+
+var accountsData = <%- (accounts) %>
+
+accountsHTML = ''
+
+
+for(var accountsElement in accountsData['data']){
+  accountsHTML += "<div><strong> Account: "+accountsData['data'][accountsElement]['name']+"</strong></div>"
+  workdaysHTML = ''
+  for(var workday in accountsData['data'][accountsElement]['workDays']){
+    console.log(workday, accountsData['data'][accountsElement]['workDays'][workday])
+    workdaysHTML += accountsData['data'][accountsElement]['workDays'][workday]+" "
+  }
+  accountsHTML += "<div>Workdays: "+workdaysHTML+"</div>"
+
+  var joinedDate = moment(accountsData['data'][accountsElement]['joinedDate'],'YYYY-MM-DDTHH:mm:ssZ');
+  accountsHTML += "<div> joinedDate: "+joinedDate.format('DD MMM YYYY')+"</div>"
+  //accountsHTML += "<div>Accounts: "+accountsData['data'][accountsElement]['name']+"</strong></div>"
+  }
+
+document.getElementById('accountsHTMLDIV').innerHTML += accountsHTML
+
+
+/**
+Contacts
+**/
+
+var contactsData = <%- (contacts) %>
+
+contactsHTML = ''
+
+for(var contactsElement in contactsData['data']){
+  contactsHTML += "<div class='col-md-12 row'>"
+  contactsHTML += "<div class='col-md-2'><img src='"+contactsData['data'][contactsElement]['avatarUrl']+"' ></strong></div>"
+  contactsHTML += "<div><strong> Account: "+contactsData['data'][contactsElement]['firstName']+" "+contactsData['data'][contactsElement]['lastName']+"</strong></div>"
+  contactsHTML += "<div>Accounts: "+contactsData['data'][contactsElement]['title']+"</strong></div>"
+  contactsHTML += "<div>Accounts: "+contactsData['data'][contactsElement]['profiles'][0]['email']+"</strong></div>"
+  contactsHTML += "</div>"
+  contactsHTML += "<div class='clearfix'>&nbsp</div>"
+  }
+
+document.getElementById('contactsHTMLDIV').innerHTML += contactsHTML
+
+
+
+/**
+Custom Fields
+**/
+
+var customfieldsData = <%- (customfields) %>
+
+customfieldsHTML = ''
+for(var customfieldsElement in customfieldsData['data']){
+  customfieldsHTML += "<div class='col-md-12 row'>"
+  customfieldsHTML += "<div><strong>Title: "+customfieldsData['data'][customfieldsElement]['title']+"</strong></div>"
+  customfieldsHTML += "<div>Type: "+customfieldsData['data'][customfieldsElement]['type']+"</strong></div>"
+  customfieldsHTML += "</div>"
+  customfieldsHTML += "<div class='clearfix'>&nbsp</div>"
+  customfieldsHTML += "<div class='clearfix'>&nbsp</div>"
+  }
+
+document.getElementById('customfieldsHTMLDIV').innerHTML += customfieldsHTML
+
+
+
+
+/**
+  Comments
+**/
+
+var commentsData = <%- (comments) %>
+
+commentsHTML = ''
+for(var commentsElement in commentsData['data']){
+  commentsHTML += "<div class='col-md-12 row'>"
+  commentsHTML += "<div><strong>Comment: "+commentsData['data'][commentsElement]['text']+"</strong></div>"
+  commentsHTML += "<div>Author: "+commentsData['data'][commentsElement]['authorId']+"</strong></div>"
+  commentsHTML += "<div>Task: "+commentsData['data'][commentsElement]['taskId']+"</strong></div>"
+  commentsHTML += "<div>Folder: "+commentsData['data'][commentsElement]['folderId']+"</strong></div>"
+  commentsHTML += "</div>"
+  commentsHTML += "<div class='clearfix'>&nbsp</div>"
+  commentsHTML += "<div class='clearfix'>&nbsp</div>"
+  }
+document.getElementById('commentsHTMLDIV').innerHTML += commentsHTML
+
+
+
+/**
+  timelogs
+**/
+
+var timelogsData = <%- (timelogs) %>
+
+timelogsHTML = ''
+for(var timelogsElement in timelogsData['data']){
+  timelogsHTML += "<div class='col-md-12 row'>"
+  timelogsHTML += "<div>User: "+timelogsData['data'][timelogsElement]['userId']+"</strong></div>"
+  timelogsHTML += "<div>Task: "+timelogsData['data'][timelogsElement]['taskId']+"</strong></div>"
+  timelogsHTML += "<div><strong>Hours: "+timelogsData['data'][timelogsElement]['hours']+"</strong></div>"
+  timelogsHTML += "<div>Comment: "+timelogsData['data'][timelogsElement]['comment']+"</strong></div>"
+  timelogsHTML += "<div>created Date: "+timelogsData['data'][timelogsElement]['createdDate']+"</strong></div>"
+  timelogsHTML += "</div>"
+  timelogsHTML += "<div class='clearfix'>&nbsp</div>"
+  timelogsHTML += "<div class='clearfix'>&nbsp</div>"
+  }
+document.getElementById('timelogsHTMLDIV').innerHTML += timelogsHTML
+
+
+
+/**
+  attachments
+**/
+
+var attachmentsData = <%- (attachments) %>
+
+attachmentsHTML = ''
+for(var attachmentsElement in attachmentsData['data']){
+  attachmentsHTML += "<div class='col-md-12 row'>"
+  attachmentsHTML += "<div>Author: "+attachmentsData['data'][attachmentsElement]['authorId']+"</strong></div>"
+  attachmentsHTML += "<div>Name: "+attachmentsData['data'][attachmentsElement]['name']+"</strong></div>"
+  attachmentsHTML += "<div><strong>Task: "+attachmentsData['data'][attachmentsElement]['taskId']+"</strong></div>"
+  attachmentsHTML += "<div><strong>Folder: "+attachmentsData['data'][attachmentsElement]['folderId']+"</strong></div>"
+  attachmentsHTML += "<div><strong>Comment: "+attachmentsData['data'][attachmentsElement]['commentId']+"</strong></div>"
+  attachmentsHTML += "<div><strong>Current Attachment: "+attachmentsData['data'][attachmentsElement]['currentAttachmentId']+"</strong></div>"
+  attachmentsHTML += "<div>type: "+attachmentsData['data'][attachmentsElement]['type']+"</strong></div>"
+  attachmentsHTML += "<div>created Date: "+attachmentsData['data'][attachmentsElement]['createdDate']+"</strong></div>"
+  attachmentsHTML += "</div>"
+  attachmentsHTML += "<div class='clearfix'>&nbsp</div>"
+  attachmentsHTML += "<div class='clearfix'>&nbsp</div>"
+  }
+document.getElementById('attachmentsHTMLDIV').innerHTML += attachmentsHTML
+  </script>
+</body>
