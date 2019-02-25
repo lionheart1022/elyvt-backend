@@ -1,0 +1,781 @@
+  <!-- Container -->
+  <div class="container body">
+    <!-- Main Container -->
+    <div class="main_container_db">
+
+      <!-- Sidebar -->
+      {{> sidebar }}
+      <!-- /Sidebar -->
+
+      <!-- page content -->
+      <div class="right_col_db page_content" role="main">
+
+       <!-- top navigation ! -->
+       {{> topbar }}
+       <!-- /top navigation -->
+
+       <!-- top tiles -->
+       <div class="row tile_count" >
+         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+           <span class="count_top"><i class="fa fa-user"></i> Total Users</span>
+           <div class="count">2500</div>
+           <span class="count_bottom"><i class="green">4% </i> From last Week</span>
+         </div>
+         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+           <span class="count_top"><i class="fa fa-clock-o"></i> Average Time</span>
+           <div class="count">123.50</div>
+           <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> From last Week</span>
+         </div>
+         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+           <span class="count_top"><i class="fa fa-user"></i> Total Males</span>
+           <div class="count green">2,500</div>
+           <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
+         </div>
+         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+           <span class="count_top"><i class="fa fa-user"></i> Total Females</span>
+           <div class="count">4,567</div>
+           <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> From last Week</span>
+         </div>
+         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+           <span class="count_top"><i class="fa fa-user"></i> Total Collections</span>
+           <div class="count">2,315</div>
+           <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
+         </div>
+         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+           <span class="count_top"><i class="fa fa-user"></i> Total Connections</span>
+           <div class="count">7,325</div>
+           <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
+         </div>
+       </div>
+       <!-- /top tiles -->
+
+       <!-- main cont -->
+       <div class="main_cont">
+        <div class="page-title">
+          <div class="col-md-8 col-sm-8 col-xs-12">
+            <h3>11/1 Updates: 75 Rock and 14 Floor CityView Critical Path Created</h3>
+          </div>
+
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="col-md-12 col-sm-12 col-xs-12 form-group pull-right top_search">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button">Go!</button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="x_panel">
+              <div class="x_content">
+                <div class="row">
+                  <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                    <h3>Weekly Critical Path Dashboard</h3>
+                  </div>
+
+                  <div class="clearfix"></div>
+
+                  <div class="row">
+                    <div class="col-md-12 col-xs-12  widget_tally_box col-lg-12">
+                      <div class="col-md-12 col-xs-12  widget_tally_box col-lg-2">
+                        <div class="row  " id="tasks-left-panel">
+                          <!--Left Panel tasks Info-->
+                        </div>
+                      </div>
+
+                      <!--center col-->
+                      <div class="col-md-12 col-sm-12 col-xs-12 col-lg-8">
+                        <!--Weekly Critical Path-->
+
+                        <div class="x_panel">
+                          <div class="x_title">
+                            <h2>Weekly Critical Path <small>Dashboard</small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                              </li>
+                              <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                  <li><a href="#">Settings 1</a>
+                                  </li>
+                                  <li><a href="#">Settings 2</a>
+                                  </li>
+                                </ul>
+                              </li>
+                              <li><a class="close-link"><i class="fa fa-close"></i></a>
+                              </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                          </div>
+                          <div class="x_content">
+                            <table class="table table-bordered">
+                              <thead>
+                                <tr>
+                                  <th style="width: 30%;">Critical Dates</th>
+                                  <th style="width: 10%;">City View 13</th>
+                                  <th style="width: 10%;">101 G</th>
+                                  <th style="width: 10%;">333 S Grand</th>
+                                  <th style="width: 10%;">777 S Figueroa</th>
+
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>Release equipment Jonathan</td>
+                                  <td>01/17/18</td>
+                                  <td>12/10/17</td>
+                                  <td>22/1/17</td>
+                                  <td>01/17/18</td>
+
+                                </tr>
+                                <tr>
+
+                                  <td>Rack Fab Conference Rooms</td>
+                                  <td>01/17/18</td>
+                                  <td>12/10/17</td>
+                                  <td>22/1/17</td>
+                                  <td>01/17/18</td>
+
+                                </tr>
+                                <tr>
+
+                                  <td>Tenant Hard Hat Tour Event #1</td>
+                                  <td>01/17/18</td>
+                                  <td>12/10/17</td>
+                                  <td>22/1/17</td>
+                                  <td>01/17/18</td>
+
+                                </tr>
+
+                                <tr>
+
+                                  <td><span>Security Vendor Selected Brittany</span></td>
+                                  <td>01/17/18</td>
+                                  <td>12/10/17</td>
+                                  <td>22/1/17</td>
+                                  <td>01/17/18</td>
+
+                                </tr>
+                                <tr>
+                                  <td>Release equipment Jonathan</td>
+                                  <td>01/17/18</td>
+                                  <td>12/10/17</td>
+                                  <td>22/1/17</td>
+                                  <td>01/17/18</td>
+
+                                </tr>
+                                <tr>
+
+                                  <td>Rack Fab Conference Rooms</td>
+                                  <td>01/17/18</td>
+                                  <td>12/10/17</td>
+                                  <td>22/1/17</td>
+                                  <td>01/17/18</td>
+
+                                </tr>
+                                <tr>
+
+                                  <td>Tenant Hard Hat Tour Event #1</td>
+                                  <td>01/17/18</td>
+                                  <td>12/10/17</td>
+                                  <td>22/1/17</td>
+                                  <td>01/17/18</td>
+
+                                </tr>
+
+                                <tr>
+
+                                  <td><span>Security Vendor Selected Brittany</span></td>
+                                  <td>01/17/18</td>
+                                  <td>12/10/17</td>
+                                  <td>22/1/17</td>
+                                  <td>01/17/18</td>
+
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+
+                        <!--Completed Tasks-->
+                        <div class="x_panel">
+                          <div class="x_title">
+                            <h2>Completed Tasks <small id="completedTasksTotal"></small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                              </li>
+                              <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                  <li><a href="#">Settings 1</a>
+                                  </li>
+                                  <li><a href="#">Settings 2</a>
+                                  </li>
+                                </ul>
+                              </li>
+                              <li><a class="close-link"><i class="fa fa-close"></i></a>
+                              </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                          </div>
+                          <div class="x_content">
+                            <table class="table table-bordered" id="completedTaskstable">
+                              <!-- Completed Tasks Table Body -->
+                            </table>
+                          </div>
+                        </div>
+                        <!-- /Completed Tasks -->
+
+                        <!--Risk Report-->
+                        <div class="x_panel">
+                          <div class="x_title">
+                            <h2>Risk Report <small>small text</small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                              </li>
+                              <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                  <li><a href="#">Settings 1</a>
+                                  </li>
+                                  <li><a href="#">Settings 2</a>
+                                  </li>
+                                </ul>
+                              </li>
+                              <li><a class="close-link"><i class="fa fa-close"></i></a>
+                              </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                          </div>
+                          <div class="x_content">
+                            <table class="table table-bordered" id="overdueTaskstable">
+                              <!-- Risk Report / Overdue Table body -->
+                            </table>
+                          </div>
+                        </div>
+                        <!-- /Risk Report -->
+
+
+
+
+
+                        <!--Upcoming Tasks-->
+                        <div class="x_panel">
+                          <div class="x_title">
+                            <h2>Upcoming Tasks <6 days <small>small text</small></h2>
+                              <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li class="dropdown">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                  <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Settings 1</a>
+                                    </li>
+                                    <li><a href="#">Settings 2</a>
+                                    </li>
+                                  </ul>
+                                </li>
+                                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                              </ul>
+                              <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                              <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th style="width: 6%;">Health</th>
+                                    <th style="width: 17%;">Sheet Name</th>
+                                    <th style="width: 57%;">Task</th>
+                                    <th style="width: 20%;">Contact</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td style="text-align:center"><span class="fa fa-circle" style="color: #e73037;    font-size:18px;"></span></td>
+                                    <td>CityView13th-CP</td>
+                                    <td >Release equipment Jonathan</td>
+                                    <td>Jonathan Wheatley</td>
+
+                                  </tr>
+                                  <tr>
+                                    <td style="text-align:center"><span class="fa fa-circle" style="color: #e73037;    font-size:18px;"></span></td>
+                                    <td>3 CityView13th-CP</td>
+                                    <td>Rack Fab Conference Rooms</td>
+                                    <td>Caitlyn Gehrke</td>
+
+                                  </tr>
+                                  <tr>
+                                    <td style="text-align:center"><span class="fa fa-circle" style="color: #e73037;    font-size:18px;"></span></td>
+
+                                    <td>4 CityView13th-CP</td>
+                                    <td>Tenant Hard Hat Tour Event #1</td>
+                                    <td>Brittany Valente</td>
+
+                                  </tr>
+                                  <tr>
+                                    <td style="text-align:center"><span class="fa fa-circle" style="color: #e73037;    font-size:18px;"></span></td>
+
+                                    <td>CityView13th-CP </td>
+                                    <td>Load Terms & Conditions</td>
+                                    <td>Brittany</td>
+
+                                  </tr>
+                                  <tr>
+                                    <td style="text-align:center"><span class="fa fa-circle" style="color: #e73037;    font-size:18px;"></span></td>
+                                    <td>CityView13th-CP </td>
+                                    <td><span>Security Vendor Selected Brittany</span></td>
+                                    <td>Compte</td>
+                                  </tr>
+
+                                  <tr>
+                                    <td style="text-align:center"><span class="fa fa-circle" style="color: #e73037;    font-size:18px;"></span></td>
+                                    <td>CityView13th-CP</td>
+                                    <td >Release equipment Jonathan</td>
+                                    <td>Jonathan Wheatley</td>
+
+                                  </tr>
+                                  <tr>
+                                    <td style="text-align:center"><span class="fa fa-circle" style="color: #e73037;    font-size:18px;"></span></td>
+                                    <td>3 CityView13th-CP</td>
+                                    <td>Rack Fab Conference Rooms</td>
+                                    <td>Caitlyn Gehrke</td>
+
+                                  </tr>
+                                  <tr>
+                                    <td style="text-align:center"><span class="fa fa-circle" style="color: #e73037;    font-size:18px;"></span></td>
+
+                                    <td>4 CityView13th-CP</td>
+                                    <td>Tenant Hard Hat Tour Event #1</td>
+                                    <td>Brittany Valente</td>
+
+                                  </tr>
+                                  <tr>
+                                    <td style="text-align:center"><span class="fa fa-circle" style="color: #e73037;    font-size:18px;"></span></td>
+
+                                    <td>CityView13th-CP </td>
+                                    <td>Load Terms & Conditions</td>
+                                    <td>Brittany</td>
+
+                                  </tr>
+                                  <tr>
+                                    <td style="text-align:center"><span class="fa fa-circle" style="color: #e73037;    font-size:18px;"></span></td>
+                                    <td>CityView13th-CP </td>
+                                    <td><span>Security Vendor Selected Brittany</span></td>
+                                    <td>Compte</td>
+                                  </tr>
+
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- /Upcoming Tasks -->
+
+
+
+                        <!--right col-->
+                        <div class="col-md-12 col-xs-12  col-lg-2">
+                          <div class="row">
+                            <div class="x_panel widget ">
+                              <div class="x_title" style="  ">
+                                <ul class="nav navbar-right panel_toolbox" style="margin-right:-7px; */  min-width: 50px;">
+                                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                  </li>
+
+                                  <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                  </li>
+                                </ul>
+                                <div class="title_tast">Links to Files on Box.com</div>
+
+                                <div class="clearfix"></div>
+                              </div>
+                              <div class="x_content">
+
+
+
+
+                                <div >
+                                  <p style=" border-bottom: 1px solid #ECECEC; padding-bottom: 10px">
+                                    <span><span class="glyphicon glyphicon-link"></span></span>
+                                    <span style="padding-right: 5px;  font-size: 14px; color:#696565;"><a href="#">Convene NDA</a></span>
+
+                                  </p>
+                                  <p style=" border-bottom: 1px solid #ECECEC; padding-bottom: 10px">
+                                    <span><span class="glyphicon glyphicon-link"></span></span>
+                                    <span style="padding-right: 5px;  font-size: 14px; color:#696565;"><a href="#" class="">Meeting Minutes Template</a></span>
+                                  </p>
+                                  <p style=" border-bottom: 1px solid #ECECEC; padding-bottom: 10px">
+                                    <span><span class="glyphicon glyphicon-link"></span></span>
+                                    <span style="padding-right: 5px;  font-size: 14px; color:#696565;"><a href="#">Link text 3</a></span>
+                                  </p>
+                                  <p style=" border-bottom: 1px solid #ECECEC; padding-bottom: 10px">
+                                    <span><span class="glyphicon glyphicon-link"></span></span>
+                                    <span style="padding-right: 5px;  font-size: 14px; color:#696565;"><a href="#">Link text 4</a></span>
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="x_panel  widget">
+                              <div class="x_title" style="  ">
+                                <ul class="nav navbar-right panel_toolbox" style="margin-right:-7px; */  min-width: 50px;">
+                                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                  </li>
+
+                                  <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                  </li>
+                                </ul>
+                                <div class="title_tast">Shortcuts</div>
+
+                                <div class="clearfix"></div>
+                              </div>
+                              <div class="x_content">
+
+
+
+
+                                <div >
+                                  <p style=" border-bottom: 1px solid #ECECEC; padding-bottom: 10px">
+                                    <span><span class="fa fa-file-o"></span></span>
+                                    <span style="padding-left: 5px;  font-size: 14px; color:#696565;"><a href="#">Shortcut NDA</a></span>
+
+                                  </p>
+                                  <p style=" border-bottom: 1px solid #ECECEC; padding-bottom: 10px">
+                                    <span><span class="fa fa-file-o"></span></span>
+                                    <span style="padding-left: 5px;  font-size: 14px; color:#696565;"><a href="#" class="">101G-CPe</a></span>
+                                  </p>
+                                  <p style=" border-bottom: 1px solid #ECECEC; padding-bottom: 10px">
+                                    <span><span class="fa fa-file-text-o"></span></span>
+                                    <span style="padding-left: 5px;  font-size: 14px; color:#696565;"><a href="#">CityView13th-CP</a></span>
+                                  </p>
+                                  <p style=" border-bottom: 1px solid #ECECEC; padding-bottom: 10px">
+                                    <span><span class="fa fa-file-image-o"></span></span>
+                                    <span style="padding-left: 5px;  font-size: 14px; color:#696565;"><a href="#">4TS-CP</a></span>
+                                  </p>
+
+                                  <p style=" border-bottom: 1px solid #ECECEC; padding-bottom: 10px">
+                                    <span><span class="fa fa-file-pdf-o"></span></span>
+                                    <span style="padding-left: 5px;  font-size: 14px; color:#696565;"><a href="#">CityView14th-CP</a></span>
+                                  </p>
+                                  <p style=" border-bottom: 1px solid #ECECEC; padding-bottom: 10px">
+                                    <span><span class="fa fa-file-word-o"></span></span>
+                                    <span style="padding-left: 5px;  font-size: 14px; color:#696565;"><a href="#">75 Rock CP</a></span>
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+
+
+
+                            <div class="x_panel widget ">
+                              <div class="x_title" style="  ">
+                                <ul class="nav navbar-right panel_toolbox" style="margin-right:-7px;  min-width: 50px;">
+                                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                  </li>
+
+                                  <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                  </li>
+                                </ul>
+                                <div class="title_tast">Legend</div>
+
+                                <div class="clearfix"></div>
+                              </div>
+                              <div class="x_content">
+
+
+
+
+                                <div>
+                                  <p style=" padding-bottom:5px">
+                                    <span style="font-weight: bold;  font-size: 14px; color: red;">Red Text</span>
+                                    <span style="padding-left: 5px;  font-size: 14px; color:#696565;">- Task is past end date and needs to be addressed as completed or at risk</span>
+
+                                  </p>
+
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+
+
+                      <div class="clearfix"></div>
+
+
+
+
+                      <div id="placeholder"></div>
+
+
+
+
+
+                      <div class="clearfix"></div>
+
+
+
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- footer content -->
+         <!--<footer>
+           <div class="pull-right">
+             &copy; elyvt.com
+           </div>
+           <div class="clearfix"></div>
+         </footer>-->
+          <!-- /footer content -->
+        </div>
+        <!-- /main cont -->
+      </div>
+      <!-- /page content -->
+    </div>
+    <!-- /Main Container -->
+  </div>
+  <!-- /Container --> 
+
+
+  <!-- jQuery -->
+  <script src="/vendors/jquery/dist/jquery.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <!-- bootstrap-daterangepicker -->
+  <script src="/vendors/moment/min/moment.min.js"></script>
+  <script src="/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+  <!-- Custom Theme Scripts -->
+  <script src="/build/js/custom.min.js"></script>
+
+  <script src="/vendors/plotly/js/plotly-latest.min.js"></script>
+  <script src="/vendors/plotly/js/numeric.min.js"></script>
+
+  <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+  <script>
+  // initalise variables
+  var contactsData = {{{contacts}}}
+  var tasksData = {{{tasks}}}
+
+  var now = moment();
+  var monthsLists = []
+  var activetaskList = []
+  var completedtaskList = []
+  var thisWeekTasks = []
+  var todaysTasks = []
+  var overdueTasks = []
+  var A_WEEK_OLD = now.clone().subtract(7, 'days').startOf('day');
+  var ONE_DAY_OLD = now.clone().subtract(1, 'days').startOf('day');
+
+  var taskTypes = {'Backlog':0, 'Milestone':0, 'Planned':0}
+  
+
+  /*
+   * Function getContactByID
+   *
+   * Find and Return Contact from contactList by ID
+   *
+   * @param (type): $contactID(integer)
+   * @return Contact Details: (Json Obj)
+   */
+   function getContactByID($contactID){
+    for(var contactsElement in contactsData['data']){
+      if($contactID==contactsData['data'][contactsElement]['id']){
+        return contactsData['data'][contactsElement];
+      }
+    }
+    return false;
+  }
+
+  $totalElement = 0;
+  for($i=0; $i<6;$i++){
+    if($i==0){
+      monthsLists[0] = now.format('MMM YYYY');
+    }else{
+      monthsLists[$i] = now.subtract(1, 'months').format('MMM YYYY');
+    }
+    $rtl = 0;
+    
+    for(var Element in tasksData['data']){
+      $totalElement++;
+      var d = moment(tasksData['data'][Element]['createdDate'],'YYYY-MM-DDTHH:mm:ssZ');
+      if(monthsLists[$i] == d.format('MMM YYYY')){
+        if(tasksData['data'][Element]['status']=="Completed"){
+          completedtaskList.push(tasksData['data'][Element])
+        }
+        if(tasksData['data'][Element]['status']=="Active"){
+          activetaskList.push(tasksData['data'][Element])
+        }
+      }
+
+      var month = d.format('M');
+      var year = d.format('YYYY');
+      var lastmonth = d.clone().subtract(1, 'months').format('MMM YYYY');
+
+      if (d.isAfter(A_WEEK_OLD)){
+        thisWeekTasks.push(tasksData['data'][Element])
+      }
+
+      if (d.isAfter(ONE_DAY_OLD)){
+        todaysTasks.push(tasksData['data'][Element])
+      }
+
+      if(tasksData['data'][Element]['dates']['type']=="Backlog"){
+        taskTypes['Backlog'] = taskTypes['Backlog']+1;
+      }
+      if(tasksData['data'][Element]['dates']['type']=="Milestone"){
+        taskTypes['Milestone'] = taskTypes['Milestone']+1;
+      } 
+      if(tasksData['data'][Element]['dates']['type']=="Planned"){
+        taskTypes['Planned'] = taskTypes['Planned']+1;
+        var dueDate = moment(tasksData['data'][Element]['dates']['due'],'YYYY-MM-DDTHH:mm:ssZ');
+        if(!dueDate.isAfter( moment()) && tasksData['data'][Element]['status']=="Active"){
+              //console.log("Risk Task FOund.", tasksData['data'][Element] )
+              overdueTasks.push(tasksData['data'][Element])
+            }
+          }
+        }
+      }
+
+
+      monthsLists.reverse()
+      activetaskList.reverse()
+      completedtaskList.reverse()
+      overdueTasks.reverse()
+
+      activetaskListHTML = ''
+      $breakActivehtml = 0
+      for(var item in activetaskList){
+
+        if(activetaskList[item]['dates']['start']){
+          var startDate = moment(activetaskList[item]['dates']['start'],'YYYY-MM-DDTHH:mm:ssZ');
+
+          activetaskListHTML += '<div class="x_panel widget">\
+          <div class="x_title" style="  ">\
+          <ul class="nav navbar-right panel_toolbox" style="margin-right:-7px; */  min-width: 50px;">\
+          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>\
+          </li>\
+          <li><a class="close-link"><i class="fa fa-close"></i></a>\
+          </li>\
+          </ul>\
+          <div class="title_tast"><a href="/task/?id='+activetaskList[item]['id']+'">'+activetaskList[item]['title']+'</a></div>\
+          <div class="clearfix"></div>\
+          </div>\
+          <div class="x_content">\
+          <div >\
+          <p style=" border-bottom: 1px solid #ECECEC; padding-bottom: 10px">\
+          <span style="padding-right: 5px;  font-size: 14px; color:#696565; font-weight: bold">Opening Date:  </span>\
+          <span><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-calendar"></span>'+startDate.format("DD MMM, YYYY")+'</button></span>\
+          </p>\
+          <p>\
+          <span style="padding-right: 5px;  font-size: 14px; color:#696565; font-weight: bold">Days Left:  </span>\
+          <span style=" font-size: 18px; color: darkred">66</span>\
+          </p>\
+          </div>\
+          </div>\
+          </div>';
+
+          $("#tasks-left-panel").append(activetaskListHTML);
+          $breakActivehtml++;
+          if($breakActivehtml > 10){
+            break;
+          }
+        }
+      }
+
+
+      completedTasksHTML = '<thead><tr><th>Tasks</th><th>Author</th><th>Status</th></tr></thead></tbody>'
+      $completedTasks = 0;
+
+      for(var item in completedtaskList){
+        $completedTasks++;
+        completedTasksHTML += '<tr>'
+        completedTasksHTML += '<td><a href="/task/?id='+completedtaskList[item]['id']+'">'+completedtaskList[item]['title']+'</a></td>';
+        var contact = getContactByID(completedtaskList[item]['authorIds'])
+        if (contact != false){
+          completedTasksHTML += '<td>'+contact['firstName']+' '+contact['lastName']+'</td>'
+        }
+        completedTasksHTML += '<td>'+completedtaskList[item]['status']+'</td>'
+        completedTasksHTML += '</tr>'
+      }
+      completedTasksHTML += '</tbody>'
+      //completedTasksHTML += '<p> Completed Tasks:'+$completedTasks+'</p>'
+      document.getElementById('completedTaskstable').innerHTML = completedTasksHTML
+      document.getElementById('completedTasksTotal').innerHTML = 'Total:'+$completedTasks
+
+
+      overdueTasksHTML = '<thead><tr><th>Tasks</th><th>Author</th><th>Status</th></tr></thead></tbody>'
+      $totalOverdueTasks = 0;
+      for(var item in overdueTasks){
+        $totalOverdueTasks++;
+        overdueTasksHTML += '<tr>'
+        overdueTasksHTML += '<td style="color:red">'+overdueTasks[item]['title']+'</td>';
+        var contact = getContactByID(overdueTasks[item]['authorIds'])
+        if (contact != false){
+          overdueTasksHTML += '<td>'+contact['firstName']+' '+contact['lastName']+'</td>'
+        }
+        overdueTasksHTML += '<td>'+overdueTasks[item]['status']+'</td>'
+        overdueTasksHTML += '</tr>'
+      }
+      overdueTasksHTML += '</tbody>'
+      overdueTasksHTML += '<p> Total Overdue Tasks:'+$totalOverdueTasks+'</p>'
+      document.getElementById('overdueTaskstable').innerHTML += overdueTasksHTML
+
+
+
+
+  /*
+  todaysTasksHTML = '<br/><h3>Todays Tasks</h3> <table class="table table-responsive table-striped"><tr><th>Tasks</th><th>Status</th></tr>'
+    
+  $activeTasksToday = 0;
+  $completedTasksToday = 0;
+  for(var item in todaysTasks){
+    
+    if(tasksData['data'][Element]['status'] == 'Active'){
+      $activeTasksToday++;
+    }
+
+    if(tasksData['data'][Element]['status'] == 'Completed'){
+      $completedTasksToday++;
+    }
+    
+    todaysTasksHTML += '<tr>'
+    todaysTasksHTML += '<td>'+tasksData['data'][Element]['title']+'</td>';
+    todaysTasksHTML += '<td>'+tasksData['data'][Element]['status']+'</td>'
+    todaysTasksHTML += '</tr>'
+  }
+
+  todaysTasksHTML += '<p>Active Tasks: '+$activeTasksToday+',  Completed Tasks:'+$completedTasksToday+'</p>'
+  document.getElementById('todaysTasksHTMLDIV').innerHTML += todaysTasksHTML
+
+
+  */
+
+  //console.log(tasksHTML)
+  //document.getElementById('tasksHTMLDIV').innerHTML += tasksHTML
+
+
+  $(window).load(function(){
+    $('#completedTaskstable').DataTable();
+    $("#overdueTaskstable").DataTable();
+  });
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,215 @@
+  <body class="nav-md">
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+
+    <div class="container body">
+      <div class="main_container_db">
+        {{> sidebar }}
+        
+        <div class="right_col_db" role="main">
+
+          <!-- top navigation!41 -->
+          {{> topbar }}
+          <!-- /top navigation -->
+
+          {{> notifications }}
+
+          <!-- page content -->
+          <div class="main_cont" role="main">
+              <nav aria-label="breadcrumb" role="navigation">
+                  <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="/">Home</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Workflows</li>
+                  </ol>
+              </nav>
+              <div class="clearfix"></div>
+              
+           <div class="col-md-8">
+            
+            <div class="col-md-12">
+              <div id="taskDetails" class="well well-sm" style="font-size:16px; padding:20px">
+
+    <form action="/task/update" method="post">
+       <input type="hidden" name="taskId" value="{{{ taskdetails._id}}}" class="form-control">
+       <div class="col-md-12">
+        <label class="title">Title</label>
+        <input type="text" name="title" value="{{{ taskdetails.title}}}" class="form-control">
+       </div>
+       <div class="col-md-12">
+        <label class="title">Description</label>
+        <input type="text" name="description" value="{{{ taskdetails.description}}}" class="form-control">
+       </div>
+      <!-- <div class="col-md-12">
+        <div class="title">Brief Description</div>
+        <input type="text" name="briefDescription" value="{{{ taskdetails.briefDescription}}}" class="form-control">
+       </div>-->
+       <div class="clearfix" style="padding:5px;"></div>
+       <div class="form-group col-md-6   ">
+          <label for="task_name" class="">Start Date</label>
+          <div class="col-sm-12 row">
+            <input type="datetime-local" class="form-control" name="startDate" id="startDate" value="{{{ taskdetails.dates.start}}}" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-group col-md-6   ">
+          <label for="task_name" class="">Due Date</label>
+          <div class="col-sm-12 row">
+            <input type="datetime-local" class="form-control" name="due" id="due" placeholder="due..." value="{{{ taskdetails.dates.due}}}" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-group col-md-12   ">
+          <label for="project_name" class="col-form-label">Roles</label>
+          <div class="col-sm-12 row">
+            {{#each roles as |role roleId|}}
+                <input type="checkbox" value="{{{role._id}}}" name="roles"> {{{role.title}}}
+            {{/each}}
+          </div>
+        </div>
+
+         <div class="form-group col-md-12   ">
+          <label for="task_name" class="col-form-label">Status</label>
+          <div class="clearfix"></div>
+          <div class="col-sm-6 row">
+            <select name="status" class="form-control">
+              {{{taskStatusOptions}}}
+            </select>           
+          </div>
+        </div>
+        
+
+        <div class="form-group col-md-12   ">
+          <label for="task_name" class="col-form-label">Assignee</label>
+          <div class="clearfix"></div>
+          <div class="col-sm-6 row">
+            <select name="authorIds" class="form-control">
+              {{{contactsDropdownHTML}}}
+            </select>           
+          </div>
+        </div>
+
+        <div class="form-group col-md-12   ">
+          <label for="task_name" class="pull-left col-form-label">Dependencies</label>
+          <div class="clearfix"></div>
+          <div class="col-sm-6 row">
+            <select id="dependencies" name="dependencies" class="multiselect-ui form-control" multiple="multiple" style="min-height:200px;">
+              {{{dependenciesDropdownHtml}}}
+          </select>           
+          </div>
+        </div>
+
+        <div class="form-group row col-md-12   ">
+          <label for="task_name" class="pull-left col-form-label">Attachement</label>
+          <div class="col-sm-6">
+            <input type="hidden" name="attachement" value="{{taskdetails.attachents}}" id="attachement">
+            <button type="button" class="btn btn-default" id="pick">Browse Files from Google Drive</button> 
+
+          </div>
+
+          <div id="attachment_display"><a href="{{attachents.alternateLink}}" target="_blank">{{attachents.title}}</a></div>
+        </div>
+        
+
+        <div class="clearfix">&nbsp;</div>
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-success">Update</button>
+        </div>
+
+    </form>
+      
+              </div>
+            </div>
+
+            </div>
+
+            <div class="col-md-4 pull-left text-center well-sm well">
+                <a href="/task/delete/?id={{{ taskdetails._id}}}" class="btn btn-danger pull-right">Delete Task</a>
+              </div>
+
+
+
+          <div class="qa-container col-md-12">
+            <div class="well well-sm">
+              <h3>Ask Questions for this Task: </h3>
+              <form class="" method="post" action="/task/createquestions">
+                <input type="hidden" name="taskId" value="{{{ taskdetails._id}}}">
+                <div class="col-md-12">Question: <input type="text" name="question" placeholder="Question..." class="form-control" /></div>
+                <input type="hidden" name="answer" class="form-control"/></div>
+                <div class="col-md-12"><button type="Submit" class="btn btn-primary btn-sm">Submit</button></div>
+              </form>
+            </div>
+          </div>
+
+          <div class=" qa-container  col-md-12">
+            <h3>Asked  Questions and Answers</h3>
+            <table class="table table-responsive">
+              <tr>
+                <th>Questions</th>
+                <th>Answers</th>
+              </tr>
+            {{#each QuestionAnswersData}}
+              <tr>
+                <td>{{this.question}}</td>
+                <td>{{this.answer}}</td>
+              </tr>
+            {{/each}}
+          </table>
+          </div>
+        </div>
+        
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+  </div>
+
+  <style>
+  .well-sm{
+    background-color: #fff;
+  }
+  </style>
+  <!-- jQuery -->
+  http://elyvt.com
+  <!-- Bootstrap -->
+  <script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/js/bootstrap-multiselect.js"></script>
+  <!-- bootstrap-daterangepicker -->
+  <script src="/vendors/moment/min/moment.min.js"></script>
+  <script src="/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+  <!-- Custom Theme Scripts -->
+  <script src="/build/js/custom.min.js"></script>
+
+  <script src="/vendors/plotly/js/plotly-latest.min.js"></script>
+  <script src="/vendors/plotly/js/numeric.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+<script src="/js/filepicker.js"></script>
+  <script>
+    function initPicker() {
+      var picker = new FilePicker({
+        apiKey: 'AIzaSyDL2PCa-Hwx4eptVzJfLHY9Ihq0goWV_JQ',
+        clientId: '361479185010-ch9r99j6uhv1ajpobj5eh4cc0m1uvesm',
+        buttonEl: document.getElementById('pick'),
+        onSelect: function(file) {
+          console.log(file);
+          $("#attachement").val(JSON.stringify(file));
+          $("#attachment_display").html('<a href="'+file.alternateLink+'" target="_blank">'+file.title+'</a>');
+          //alert('Selected ' + file.title);
+        }
+      }); 
+    }
+  </script>
+  
+  <script src="https://www.google.com/jsapi?key=AIzaSyDL2PCa-Hwx4eptVzJfLHY9Ihq0goWV_JQ"></script>
+  <script src="https://apis.google.com/js/client.js?onload=initPicker"></script>
+
+</body>
+</html>

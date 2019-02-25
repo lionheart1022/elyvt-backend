@@ -1,0 +1,158 @@
+  <body class="nav-md">
+  <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+
+    <div class="container body">
+      <div class="main_container">
+        {{> sidebar }}
+        
+
+        <!-- top navigation!41 -->
+        {{> topbar }}
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+                 
+
+
+         <div class="row">
+
+         <div class="col-md-12 text-center well-sm well">
+          <h2>Task</h2>
+         </div>
+
+         
+        <div class="col-md-12">
+          <div id="taskDetails" class="well well-sm" style="font-size:16px; padding:20px"></div>
+        </div>
+
+
+          <div class="col-md-4">
+            <h2></h2>
+          </div>
+
+
+        </div>
+
+
+
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <style>
+      .well-sm{
+      background-color: #fff;
+      }
+    </style>
+
+    <!-- jQuery -->
+    <script src="/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+    <!-- bootstrap-daterangepicker -->
+    <script src="/vendors/moment/min/moment.min.js"></script>
+    <script src="/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="/build/js/custom.min.js"></script>
+
+    <script src="/vendors/plotly/js/plotly-latest.min.js"></script>
+    <script src="/vendors/plotly/js/numeric.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+
+    
+  <script>
+
+
+  var contactsData = {{{contacts}}}
+
+  function getContactByID($contactID){
+    for(var contactsElement in contactsData['data']){
+      if($contactID==contactsData['data'][contactsElement]['id']){
+        return contactsData['data'][contactsElement];
+      }
+    }
+    return false;
+  }
+
+
+
+  /**
+  tasks
+  **/
+
+
+  var tasksData = {{{tasks}}}
+  var taskID = '{{{taskID}}}';
+
+
+    var now = moment();
+    
+    var taskDetailsHTML = ''
+    for(var Element in tasksData['data']){
+      if(tasksData['data'][Element]['id']==taskID){
+        taskDetailsHTML += "<div class=\"text-center\"><h4>"+tasksData['data'][Element]['title']+"</h4></div>"
+
+        taskDetailsHTML += '<div> Title: '+tasksData['data'][Element]['title']+'</div>'
+        var contact = getContactByID(tasksData['data'][Element]['authorIds'])
+        if (contact != false){
+          taskDetailsHTML += '<div> Author :'+contact['firstName']+' '+contact['lastName']+'</div>'          
+        }
+        taskDetailsHTML += "<div class=\"text-left\">Description: "+tasksData['data'][Element]['description']+"</div>"
+        taskDetailsHTML += "<div class=\"text-left\"> Brief Description: "+tasksData['data'][Element]['briefDescription']+"</div>"
+        taskDetailsHTML += '<div> Importance :'+tasksData['data'][Element]['importance']+'</div>'
+        taskDetailsHTML += '<div> Status :'+tasksData['data'][Element]['status']+'</div>'
+
+        if(tasksData['data'][Element]['dates']['type']){
+          taskDetailsHTML += '<div> Task Type :'+tasksData['data'][Element]['dates']['type']+'</div>'
+        }
+
+        if(tasksData['data'][Element]['dates']['duration']){
+          taskDetailsHTML += '<div> Task Duration :'+tasksData['data'][Element]['dates']['duration']+'</div>'
+        }
+
+        if(tasksData['data'][Element]['dates']['start']){
+          var startDate = moment(tasksData['data'][Element]['dates']['start'],'YYYY-MM-DDTHH:mm:ssZ');
+          taskDetailsHTML += '<div> Task Start Date :'+startDate.format("DD MMM, YYYY")+'</div>'
+        }
+
+        if(tasksData['data'][Element]['dates']['due']){
+          var dueDate = moment(tasksData['data'][Element]['dates']['due'],'YYYY-MM-DDTHH:mm:ssZ');
+          taskDetailsHTML += '<div> Task Due Date :'+dueDate.format("DD MMM, YYYY")+'</div>'
+        }  
+
+        var createdDate = moment(tasksData['data'][Element]['createdDate'],'YYYY-MM-DDTHH:mm:ssZ');
+        taskDetailsHTML += '<div> Created Date :'+createdDate.format("DD MMM, YYYY")+'</div>'
+
+        var updatedDate = moment(tasksData['data'][Element]['updatedDate'],'YYYY-MM-DDTHH:mm:ssZ');
+        taskDetailsHTML += '<div> Last Updated :'+updatedDate.format("DD MMM, YYYY")+'</div>'
+        
+      }
+    }
+
+   
+  //console.log(tasksHTML)
+  document.getElementById('taskDetails').innerHTML += taskDetailsHTML
+
+
+
+
+
+</script>
+
+	
+  </body>
+</html>

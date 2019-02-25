@@ -1,0 +1,138 @@
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container_db">
+        {{> sidebar }}
+        
+        <div class="right_col_db" role="main">
+
+        <!-- top navigation !2-->
+        {{> topbar }}
+        <!-- /top navigation -->
+
+        {{> notifications }}
+
+        <!-- page content -->
+        <div class="main_cont" role="main">
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Folder</li>
+                </ol>
+            </nav>
+          <!-- top tiles -->
+          <div class="row tile_count">                  
+            {{{ folderDetails.foldersListHtml }}}
+
+
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>Tasks</h2>
+                <div class="col-md-12 ">
+                  <a href="/folders/createtasks?folderid={{{ folderId }}}" class="btn btn-primary pull-right">Create Tasks</a>
+                </div>
+              <div>
+                <div class="clearfix"></div>
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item active">
+                  <a class="nav-link " id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">List View</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="kanban-tab" data-toggle="tab" href="#kanban" role="tab" aria-controls="kanban" aria-selected="false">Kanban View</a>
+                </li>
+              </ul>
+
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade active in" id="home" role="tabpanel" aria-labelledby="home-tab">
+                  {{{ folderDetails.foldersTasksListHtml }}}
+                </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                  <div class="clearfix">&nbsp;</div>
+                  <div class="gantt-container col-md-8" style="overflow: scroll;">
+                    <H3>Gantt Chart</H3>
+                    <svg id="gantt" ></svg>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="kanban" aria-labelledby="kanban-tab">
+                </div>
+              </div>              
+            </div>
+          <br />
+          <br />
+
+        
+
+      
+
+
+          </div>
+          <!-- /top tiles -->
+
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+    </div>
+
+    <!-- jQuery -->
+    http://elyvt.com
+    <!-- Bootstrap -->
+    <script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+    <!-- bootstrap-daterangepicker -->
+    <script src="/vendors/moment/min/moment.min.js"></script>
+    <script src="/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="/build/js/custom.min.js"></script>
+
+    <!-- 
+    <script src="/vendors/plotly/js/plotly-latest.min.js"></script>
+    <script src="/vendors/plotly/js/numeric.min.js"></script>
+    -->
+
+
+      <script type="text/javascript" src="/js/snap.svg-min.js"></script>
+  <script src="/js/frappe-gantt.min.js" ></script>
+   
+   <script type="text/javascript">
+
+   var tasksGanttChartContents = []
+
+  var tasksgantdata = {{{tasksGanttChartContents}}}
+
+  for (var element in tasksgantdata){
+    var task = {
+       id: tasksgantdata[element]['id'],
+      name: tasksgantdata[element]['name'],
+      start: tasksgantdata[element]['start'],
+      end: tasksgantdata[element]['end'],
+      progress: 100
+    } 
+    if(tasksgantdata[element]['dependencies']){
+      task.dependencies = tasksgantdata[element]['dependencies']
+    }
+    tasksGanttChartContents.push(task);
+  }
+
+tasksGanttChartContents.sort(function(a,b){
+  var c = new Date(a.start);
+  var d = new Date(b.start);
+  return c-d;
+});
+
+  var gantt = new Gantt("#gantt", tasksGanttChartContents);
+//gantt.change_view_mode('Week')
+
+   </script>

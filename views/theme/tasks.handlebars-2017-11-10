@@ -1,0 +1,340 @@
+  <body class="nav-md">
+  <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+
+    <div class="container body">
+      <div class="main_container">
+        {{> sidebar }}
+        
+
+        <!-- top navigation  !5-->
+        {{> topbar }}
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+                 
+
+
+         <div class="row">
+
+         <div class="col-md-12 text-center well-sm well">
+          <h2>Weekly Critical Path Dashboard</h2>
+         </div>
+
+         <!-- Tasks Left Panel -->
+         <div class="col-md-3">
+          <div id="tasks-left-panel"></div>
+         </div>
+         <!-- End Tasks Left Panel -->
+          
+        <div class="col-md-8">
+          <div class="col-md-12">
+            <div class="clearfix"></div>
+            <div class="row">
+              <div class="x_panel">
+                <div id="completedTasksHTMLDIV" class="col-md-12 row">
+                  <br/><h3>Completed Tasks</h3> 
+                      <table class="table table-responsive table-striped" id="completedTaskstable">
+                      </table>
+                </div>
+              </div>
+            </div>  
+          </div>
+
+
+          <div class="col-md-12">
+            <div class="clearfix"></div>
+            <div class="row">
+              <div class="x_panel">
+                <div id="overdueTasksHTMLDIV" class="col-md-12 row">
+                  <br/><h3>Risk Report</h3> 
+                      <table class="table table-responsive table-striped" id="overdueTaskstable">
+                      </table>
+                </div>
+              </div>
+            </div>  
+          </div>
+
+          </div>
+
+
+          <div class="col-md-4">
+            <h2></h2>
+          </div>
+
+
+        </div>
+
+
+
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <style>
+      .well-sm{
+      background-color: #fff;
+      }
+    </style>
+
+    <!-- jQuery -->
+    <script src="/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+    <!-- bootstrap-daterangepicker -->
+    <script src="/vendors/moment/min/moment.min.js"></script>
+    <script src="/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="/build/js/custom.min.js"></script>
+
+    <script src="/vendors/plotly/js/plotly-latest.min.js"></script>
+    <script src="/vendors/plotly/js/numeric.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+
+    
+  <script>
+
+
+  var contactsData = {{{contacts}}}
+
+  function getContactByID($contactID){
+    for(var contactsElement in contactsData['data']){
+      if($contactID==contactsData['data'][contactsElement]['id']){
+        return contactsData['data'][contactsElement];
+      }
+    }
+    return false;
+  }
+
+
+
+  /**
+  tasks
+  **/
+
+
+  var tasksData = {{{tasks}}}
+
+
+
+    var now = moment();
+    var monthsLists = []
+    var activetaskList = []
+    var completedtaskList = []
+
+    var thisWeekTasks = []
+    var todaysTasks = []
+    var overdueTasks = []
+
+    var A_WEEK_OLD = now.clone().subtract(7, 'days').startOf('day');
+    var ONE_DAY_OLD = now.clone().subtract(1, 'days').startOf('day');
+
+    console.log(A_WEEK_OLD.format('DD'));
+
+    var taskTypes = {'Backlog':0, 'Milestone':0, 'Planned':0}
+    $totalElement = 0;
+    for($i=0; $i<6;$i++){
+      if($i==0){
+        monthsLists[0] = now.format('MMM YYYY');
+      }else{
+        monthsLists[$i] = now.subtract(1, 'months').format('MMM YYYY');
+      }
+      $rtl = 0;
+      
+      for(var Element in tasksData['data']){
+        $totalElement++;
+        var d = moment(tasksData['data'][Element]['createdDate'],'YYYY-MM-DDTHH:mm:ssZ');
+        if(monthsLists[$i] == d.format('MMM YYYY')){
+          if(tasksData['data'][Element]['status']=="Completed"){
+            completedtaskList.push(tasksData['data'][Element])
+          }
+          if(tasksData['data'][Element]['status']=="Active"){
+            activetaskList.push(tasksData['data'][Element])
+          }
+        }
+
+        var month = d.format('M');
+        var year = d.format('YYYY');
+        var lastmonth = d.clone().subtract(1, 'months').format('MMM YYYY');
+
+
+
+        if (d.isAfter(A_WEEK_OLD)){
+          thisWeekTasks.push(tasksData['data'][Element])
+        }
+
+        if (d.isAfter(ONE_DAY_OLD)){
+          todaysTasks.push(tasksData['data'][Element])
+        }
+
+
+
+        if(tasksData['data'][Element]['dates']['type']=="Backlog"){
+            taskTypes['Backlog'] = taskTypes['Backlog']+1;
+        }
+        if(tasksData['data'][Element]['dates']['type']=="Milestone"){
+            taskTypes['Milestone'] = taskTypes['Milestone']+1;
+        } 
+        if(tasksData['data'][Element]['dates']['type']=="Planned"){
+            taskTypes['Planned'] = taskTypes['Planned']+1;
+            var dueDate = moment(tasksData['data'][Element]['dates']['due'],'YYYY-MM-DDTHH:mm:ssZ');
+            if(!dueDate.isAfter( moment()) && tasksData['data'][Element]['status']=="Active"){
+              //console.log("Risk Task FOund.", tasksData['data'][Element] )
+              overdueTasks.push(tasksData['data'][Element])
+            }
+
+
+        }
+        //console.log("d.isAfter(A_WEEK_OLD), ", d.isAfter(A_WEEK_OLD))
+
+      }
+
+
+    }
+
+
+  monthsLists.reverse()
+  activetaskList.reverse()
+  completedtaskList.reverse()
+  overdueTasks.reverse()
+
+
+  //console.log(activetaskList);
+  console.log("Completed tasks", completedtaskList);
+  console.log("overdueTasks", overdueTasks)
+
+
+activetaskListHTML = ''
+$breakActivehtml = 0
+for(var item in activetaskList){
+
+  activetaskListHTML += '<div class="well well-sm">'
+    activetaskListHTML += '<div><strong><a href="/task/?id='+activetaskList[item]['id']+'">'+activetaskList[item]['title']+'</a></strong></div>';
+    var contact = getContactByID(activetaskList[item]['authorIds'])
+    if (contact != false){
+      activetaskListHTML += '<div>'+contact['firstName']+' '+contact['lastName']+'</div>'
+    }
+    activetaskListHTML += '<div>'+activetaskList[item]['status']+'</div>'
+    activetaskListHTML += '</div>'
+  
+  $("#tasks-left-panel").append(activetaskListHTML)
+
+  $breakActivehtml++;
+  if($breakActivehtml > 20){
+    break;
+  }
+}
+
+
+
+
+
+
+
+completedTasksHTML = '<thead><tr><th>Tasks</th><th>Author</th><th>Status</th></tr></thead></tbody>'
+    
+  $completedTasks = 0;
+
+  for(var item in completedtaskList){
+    
+    $completedTasks++;
+    console.log(item)
+    
+    completedTasksHTML += '<tr>'
+    completedTasksHTML += '<td><a href="/task/?id='+completedtaskList[item]['id']+'">'+completedtaskList[item]['title']+'</a></td>';
+    var contact = getContactByID(completedtaskList[item]['authorIds'])
+    if (contact != false){
+      completedTasksHTML += '<td>'+contact['firstName']+' '+contact['lastName']+'</td>'
+    }
+    completedTasksHTML += '<td>'+completedtaskList[item]['status']+'</td>'
+    completedTasksHTML += '</tr>'
+  }
+  completedTasksHTML += '</tbody>'
+
+  completedTasksHTML += '<p> Completed Tasks:'+$completedTasks+'</p>'
+  document.getElementById('completedTaskstable').innerHTML += completedTasksHTML
+
+
+
+
+
+  overdueTasksHTML = '<thead><tr><th>Tasks</th><th>Author</th><th>Status</th></tr></thead></tbody>'
+    
+  $totalOverdueTasks = 0;
+
+  for(var item in overdueTasks){
+    $totalOverdueTasks++;
+    overdueTasksHTML += '<tr>'
+    overdueTasksHTML += '<td style="color:red">'+overdueTasks[item]['title']+'</td>';
+    var contact = getContactByID(overdueTasks[item]['authorIds'])
+    if (contact != false){
+      overdueTasksHTML += '<td>'+contact['firstName']+' '+contact['lastName']+'</td>'
+    }
+    overdueTasksHTML += '<td>'+overdueTasks[item]['status']+'</td>'
+    overdueTasksHTML += '</tr>'
+  }
+
+overdueTasksHTML += '</tbody>'
+  overdueTasksHTML += '<p> Total Overdue Tasks:'+$totalOverdueTasks+'</p>'
+  document.getElementById('overdueTaskstable').innerHTML += overdueTasksHTML
+
+
+
+
+  /*
+  todaysTasksHTML = '<br/><h3>Todays Tasks</h3> <table class="table table-responsive table-striped"><tr><th>Tasks</th><th>Status</th></tr>'
+    
+  $activeTasksToday = 0;
+  $completedTasksToday = 0;
+  for(var item in todaysTasks){
+    
+    if(tasksData['data'][Element]['status'] == 'Active'){
+      $activeTasksToday++;
+    }
+
+    if(tasksData['data'][Element]['status'] == 'Completed'){
+      $completedTasksToday++;
+    }
+    
+    todaysTasksHTML += '<tr>'
+    todaysTasksHTML += '<td>'+tasksData['data'][Element]['title']+'</td>';
+    todaysTasksHTML += '<td>'+tasksData['data'][Element]['status']+'</td>'
+    todaysTasksHTML += '</tr>'
+  }
+
+  todaysTasksHTML += '<p>Active Tasks: '+$activeTasksToday+',  Completed Tasks:'+$completedTasksToday+'</p>'
+  document.getElementById('todaysTasksHTMLDIV').innerHTML += todaysTasksHTML
+
+
+ */
+
+  //console.log(tasksHTML)
+  //document.getElementById('tasksHTMLDIV').innerHTML += tasksHTML
+
+
+
+
+$(window).load(function(){
+    $('#completedTaskstable').DataTable();
+    $("#overdueTaskstable").DataTable();
+});
+
+
+</script>
+
+	
+  </body>
+</html>

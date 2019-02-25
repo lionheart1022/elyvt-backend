@@ -1,0 +1,53 @@
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        {{> sidebar }}
+        
+
+        <!-- top navigation !2-->
+        {{> topbar }}
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <!-- top tiles -->
+          <div class="row tile_count">
+
+             
+                  
+                  {{{ folderDetails }}}
+
+                 
+
+          </div>
+          <!-- /top tiles -->
+
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+    <!-- bootstrap-daterangepicker -->
+    <script src="/vendors/moment/min/moment.min.js"></script>
+    <script src="/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="/build/js/custom.min.js"></script>
+
+    <script src="/vendors/plotly/js/plotly-latest.min.js"></script>
+    <script src="/vendors/plotly/js/numeric.min.js"></script>
+   

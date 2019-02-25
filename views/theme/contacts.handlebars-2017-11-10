@@ -1,0 +1,112 @@
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        {{> sidebar }}
+        
+
+        <!-- top navigation !3-->
+        {{> topbar }}
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+                 
+
+
+         <div class="row">
+
+
+          
+        
+          <div class="col-md-12">
+            <h2>Contacts</h2>
+            <div class="clearfix"></div>
+            <div class="row">
+              <div class="x_panel">
+                <div id="contactsHTMLDIV" class="col-md-12 row"></div>
+              </div>
+            </div>  
+          </div>
+
+
+        </div>
+
+
+
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+    <!-- bootstrap-daterangepicker -->
+    <script src="/vendors/moment/min/moment.min.js"></script>
+    <script src="/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="/build/js/custom.min.js"></script>
+
+    <script src="/vendors/plotly/js/plotly-latest.min.js"></script>
+    <script src="/vendors/plotly/js/numeric.min.js"></script>
+   
+
+
+    
+  <script>
+
+
+  /**
+  Contacts
+  **/
+
+
+  var contactsData = {{{contacts}}}
+
+  contactsHTML = ''
+  for(var contactsElement in contactsData['data']){
+    contactsHTML += "<div class='col-md-4 col-sm-4 col-xs-12 profile_details'>"
+    contactsHTML += '<div class="well profile_view" style="display:block !important;overflow:auto">'
+    contactsHTML += "<div class='col-sm-12'>"
+    contactsHTML += '<h4 class="brief"><i>'+contactsData['data'][contactsElement]['title']+'</i></h4>'
+    contactsHTML += '<div class="left col-xs-7">'
+    contactsHTML += '<h2>'+contactsData['data'][contactsElement]['firstName']+" "+contactsData['data'][contactsElement]['lastName']+'</h2>'
+    contactsHTML += ' <ul class="list-unstyled">'
+    contactsHTML += '    <li><i class="fa fa-mail"></i> Email: '+contactsData['data'][contactsElement]['profiles'][0]['email']+' </li>'
+    if(contactsData['data'][contactsElement]['phone']){
+      contactsHTML += '    <li><i class="fa fa-phone"></i> Phone #: '+contactsData['data'][contactsElement]['phone']+'</li>'
+    }
+    contactsHTML += ' </ul>'
+    contactsHTML += '</div>'
+    contactsHTML += ' <div class="right col-xs-5 text-center">'
+    contactsHTML += '     <img src="'+contactsData['data'][contactsElement]['avatarUrl']+'" alt="" class="img-circle img-responsive">'
+    contactsHTML += ' </div>'
+    //contactsHTML += "<img src='"+contactsData['data'][contactsElement]['avatarUrl']+"' ></strong></div>"
+    //contactsHTML += "<div class='col-md-8'><div><strong> Account: "+contactsData['data'][contactsElement]['firstName']+" "+contactsData['data'][contactsElement]['lastName']+"</strong></div>"
+    //contactsHTML += "<div>Accounts: "+contactsData['data'][contactsElement]['title']+"</strong></div>"
+    //contactsHTML += "<div>Accounts: "+contactsData['data'][contactsElement]['profiles'][0]['email']+"</strong></div>"
+    contactsHTML += "</div></div></div>"
+    //contactsHTML += "<div class='clearfix'>&nbsp</div>"
+    }
+
+
+  console.log(contactsHTML)
+  document.getElementById('contactsHTMLDIV').innerHTML += contactsHTML
+
+</script>
+
+	
+  </body>
+</html>
