@@ -44,6 +44,6 @@
     "stylus": "^0.54.5"
   },
   "devDependencies": {
-    "webpack": "^3.8.1"
+    "webpack": "^5.36.1"
   }
 }
