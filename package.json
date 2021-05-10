@@ -27,7 +27,7 @@
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.6",
-    "express-validator": "^4.3.0",
+    "express-validator": "^6.11.1",
     "frappe-gantt": "0.0.7",
     "fs": "0.0.1-security",
     "gentelella": "^1.4.0",
